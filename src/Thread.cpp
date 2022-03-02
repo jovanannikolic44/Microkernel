@@ -1,10 +1,3 @@
-/*
- * Thread.cpp
- *
- *  Created on: Mar 26, 2020
- *      Author: OS1
- */
-
 #include "Thread.h"
 #include "ListPCB.h"
 #include "SCHEDULE.h"
@@ -22,7 +15,7 @@ Thread::Thread(StackSize stackSize, Time timeSlice) {
 	myPCB = new PCB(size, time);
 
 	if(myPCB == 0) {
-		cout<<"Greska thread.cpp";
+		cout<<"Error in Thread.cpp";
 		Context::lockFlag = 1;
 		return;
 	}
@@ -30,7 +23,7 @@ Thread::Thread(StackSize stackSize, Time timeSlice) {
 	myPCB->t=this;
 
 	if(myPCB->t == 0) {
-		cout<<"MyPCB->t je null";
+		cout<<"MyPCB->t is null";
 		Context::lockFlag = 1;
 		return;
 	}
@@ -46,7 +39,7 @@ Thread::Thread(StackSize stackSize, Time timeSlice) {
 void Thread::start() {
 	if(myPCB==0) {
 		Context::lockFlag = 0;
-		cout<<"Greska thread.cpp, start";
+		cout<<"Error in Thread.cpp, start";
 		Context::lockFlag = 1;
 		return;
 	}
@@ -60,7 +53,7 @@ void Thread::start() {
 void Thread::waitToComplete() {
 	Context::lockFlag=0;
 	if(PCB::running == 0 || myPCB == 0){
-		cout<<"problem thread"<<endl;
+		cout<<"Error in Thread.cpp"<<endl;
 		Context::lockFlag=1;
 		return;
 	}
@@ -92,22 +85,14 @@ ID Thread::getId() {
 Thread* Thread::getThreadById(ID id) {
 	Context::lockFlag = 0;
 	PCB* nit = 0;
-	/*if(PCB::Id <= id && id < 0 && PCB::headP==0) {
-		cout<<"getThreadById";
-		Context::lockFlag = 1;
-		if(Context::wantChange)
-			dispatch();
-		return 0;
-	}*/
-//	else {
-		nit = PCB::headP->getPCBid(id);
-		Context::lockFlag = 1;
-		if(Context::wantChange)
-			dispatch();
-		if(nit!=0) {
-			Thread* tr = nit->t;
-			return tr;
-//		}
+	nit = PCB::headP->getPCBid(id);
+	Context::lockFlag = 1;
+	if(Context::wantChange)
+		dispatch();
+	if(nit!=0) {
+		Thread* tr = nit->t;
+		return tr;
+
 		return 0;
 	}
 }

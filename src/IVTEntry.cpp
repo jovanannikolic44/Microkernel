@@ -1,10 +1,3 @@
-/*
- * IVTEntry.cpp
- *
- *  Created on: May 23, 2020
- *      Author: OS1
- */
-
 #include "IVTEntry.h"
 #include "KernelEv.h"
 #include "Context.h"

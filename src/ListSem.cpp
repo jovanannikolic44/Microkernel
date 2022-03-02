@@ -1,10 +1,3 @@
-/*
- * ListSem.cpp
- *
- *  Created on: Apr 20, 2020
- *      Author: OS1
- */
-
 #include "ListSem.h"
 #include "Context.h"
 #include "SCHEDULE.H"

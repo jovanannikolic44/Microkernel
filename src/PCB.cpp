@@ -1,10 +1,3 @@
-/*
- * Pcb.cpp
- *
- *  Created on: Mar 26, 2020
- *      Author: OS1
- */
-
 #include "PCB.h"
 #include "ListPCB.h"
 #include "Context.h"
@@ -32,7 +25,6 @@ PCB::PCB() {
 	stanje = ready;
 	wtc=new ListPCB();
 	PCB::running=this;
-	// main u listu svih PCB-ova
 	PCB::headP->addPCB(this);
 	Context::lockFlag = 1;
 	if(Context::wantChange)
@@ -74,7 +66,6 @@ PCB::PCB(unsigned long size, unsigned int time, int type) {
 		sp = 0;
 
 		if(stack == 0) {
-			cout<<"idle stack";
 			return;
 		}
 		id = 1;
@@ -139,9 +130,6 @@ void PCB::wrapper() {
 			if(k!=0){
 				k->stanje = ready;
 				Scheduler::put(k);
-			}
-			else {
-				cout<<"wrapper k je null";
 			}
 		}
 

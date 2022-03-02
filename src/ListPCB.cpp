@@ -1,10 +1,3 @@
-/*
- * ListPCB.cpp
- *
- *  Created on: Mar 27, 2020
- *      Author: OS1
- */
-
 #include "ListPCB.h"
 #include "Context.h"
 #include "SCHEDULE.H"
@@ -107,7 +100,7 @@ PCB* ListPCB::removePCBid(int identif) {
 
 PCB* ListPCB::getPCBid(int identif) {
 	if(prvi == 0)
-		return 0;			// ako ne postoji ni jedan element u listi vrati 0
+		return 0;			
 
 	Elem* tek = 0;
 	for(tek = prvi; tek!=0; tek=tek->sled) {
@@ -144,7 +137,6 @@ int ListPCB::checkPCB(int value) {
 			}
 		}
 		tek = sled;
-		// ako je jedan element u listi i radim onda ce sled biti null, pa ne smem da radim sled->sled
 		if(sled!=0)
 			sled = sled->sled;
 	}

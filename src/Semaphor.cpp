@@ -1,10 +1,3 @@
-/*
- * semaphor.cpp
- *
- *  Created on: Apr 20, 2020
- *      Author: OS1
- */
-
 #include "Semaphor.h"
 #include "Context.h"
 #include "ListSem.h"

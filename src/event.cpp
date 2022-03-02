@@ -1,10 +1,3 @@
-/*
- * event.cpp
- *
- *  Created on: May 23, 2020
- *      Author: OS1
- */
-
 #include "event.h"
 #include "Context.h"
 #include "KernelEv.h"

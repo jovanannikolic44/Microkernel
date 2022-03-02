@@ -1,10 +1,3 @@
-/*
- * KernSem.cpp
- *
- *  Created on: Apr 20, 2020
- *      Author: OS1
- */
-
 #include "KernSem.h"
 #include "Context.h"
 #include "ListSem.h"
@@ -85,7 +78,6 @@ void KernelSem::helper() {
 }
 
 KernelSem::~KernelSem() {
-	// treba iz liste svih semfora obrisati semafor ciji se destruktor zove
 	if(blockedList!=0)
 		delete blockedList;
 }

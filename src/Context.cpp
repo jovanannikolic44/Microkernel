@@ -1,10 +1,3 @@
-/*
- * Context.cpp
- *
- *  Created on: Apr 9, 2020
- *      Author: OS1
- */
-
 #include "Context.h"
 #include "SCHEDULE.H"
 #include "KernSem.h"
@@ -42,10 +35,10 @@ void interrupt timer() {
 	if(Context::wantChange || (PCB::running->timeSlice !=0 && Context::counter==0)) {
 		if(Context::lockFlag == 1) {
 
-			// moram da radim promenu konteksta
+			// Context switching must be done
 			Context::wantChange = 0;
 
-			// cuvam stari kontekst
+			// Save context
 			asm {
 				mov tsp, sp
 				mov tss, ss
@@ -55,7 +48,7 @@ void interrupt timer() {
 			PCB::running->ss = tss;
 			PCB::running->bp = tbp;
 
-			// biram novi running
+			// Find new running
 
 			if(PCB::running->stanje == ready) {
 				Scheduler::put((PCB*)PCB::running);
@@ -67,7 +60,7 @@ void interrupt timer() {
 				PCB::running=Context::pc;
 			}
 
-			// Restauracija konteksta
+			// Restore context
 
 			tsp = PCB::running->sp;
 			tss = PCB::running->ss;
@@ -91,7 +84,7 @@ void interrupt timer() {
 
 unsigned oldTimerOFF, oldTimerSEG;
 
-// postavljanje prekidne rutine (timer) na 8h, a stare prekidne rutine na 60h
+// Set timer interrupt routine to 8h and old interrupt routine to 60h
 void inic() {
 
 	asm{
@@ -99,19 +92,19 @@ void inic() {
 		push es
 		push ax
 
-		mov ax,0   //  ; inicijalizuje rutinu za tajmer
+		mov ax,0   //  Initialize routine for timer
 		mov es,ax
 
-		mov ax, word ptr es:0022h //; pamti staru rutinu
+		mov ax, word ptr es:0022h // Save old routine
 		mov word ptr oldTimerSEG, ax
 		mov ax, word ptr es:0020h
 		mov word ptr oldTimerOFF, ax
 
-		mov word ptr es:0022h, seg timer	 //postavlja
-		mov word ptr es:0020h, offset timer //novu rutinu
+		mov word ptr es:0022h, seg timer	 // Set new routine
+		mov word ptr es:0020h, offset timer 
 
-		mov ax, oldTimerSEG	 //	postavlja staru rutinu
-		mov word ptr es:0182h, ax //; na int 60h
+		mov ax, oldTimerSEG	 //	Set old routine to 60h
+		mov word ptr es:0182h, ax 
 		mov ax, oldTimerOFF
 		mov word ptr es:0180h, ax
 
@@ -122,7 +115,7 @@ void inic() {
 
 }
 
-// vracanje stare prekidne rutine na 8h
+// Return old routine to 8h
 void restore() {
 
 	asm {
