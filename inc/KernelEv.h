@@ -1,14 +1,6 @@
-/*
- * KernelEv.h
- *
- *  Created on: May 23, 2020
- *      Author: OS1
- */
-
 #ifndef KERNELEV_H_
 #define KERNELEV_H_
 #include "PCB.h"
-
 
 class IVTEntry;
 

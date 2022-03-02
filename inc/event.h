@@ -1,10 +1,3 @@
-/*
- * event.h
- *
- *  Created on: May 23, 2020
- *      Author: OS1
- */
-
 #ifndef EVENT_H_
 #define EVENT_H_
 #include "IVTEntry.h"

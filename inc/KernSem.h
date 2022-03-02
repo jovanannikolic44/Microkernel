@@ -1,10 +1,3 @@
-/*
- * KernSem.h
- *
- *  Created on: Apr 20, 2020
- *      Author: OS1
- */
-
 #ifndef KERNSEM_H_
 #define KERNSEM_H_
 #include "ListPCB.h"

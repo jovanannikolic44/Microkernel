@@ -1,10 +1,3 @@
-/*
- * Semaphor.h
- *
- *  Created on: Apr 20, 2020
- *      Author: OS1
- */
-
 #ifndef SEMAPHOR_H_
 #define SEMAPHOR_H_
 #include "KernSem.h"

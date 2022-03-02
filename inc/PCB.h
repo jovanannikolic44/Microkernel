@@ -1,10 +1,3 @@
-/*
- * Pcb.h
- *
- *  Created on: Mar 26, 2020
- *      Author: OS1
- */
-
 #ifndef PCB_H_
 #define PCB_H_
 #include <dos.h>
@@ -24,7 +17,7 @@ public:
 	Stanje stanje;
 	static int Id;
 	int id;
-	Thread* t;		// pokazivac na nit za koju zovem run(), to je nit koja se trenutno izvrsava
+	Thread* t;		
 	static volatile PCB* running;
 	static ListPCB* headP;
 	ListPCB* wtc;

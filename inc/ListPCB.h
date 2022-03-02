@@ -1,10 +1,3 @@
-/*
- * ListPCB.h
- *
- *  Created on: Mar 27, 2020
- *      Author: OS1
- */
-
 #ifndef LISTPCB_H_
 #define LISTPCB_H_
 #include "PCB.h"
@@ -24,9 +17,9 @@ public:
 
 public:
 	ListPCB();
-	void addPCB(PCB* pc);			// dodaje na kraj
-	PCB* removePCB();				// uzima sa pocetka
-	PCB* removePCBid(int identif);	// uklanja na osnovu id-ja
+	void addPCB(PCB* pc);			// add PCB to the end of the list
+	PCB* removePCB();				// remove PCB from the beginning
+	PCB* removePCBid(int identif);	
 	PCB* getPCBbyIndex(int index);
 	PCB* getPCBid(int identif);
 	int checkPCB(int value);

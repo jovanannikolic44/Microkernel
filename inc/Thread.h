@@ -1,10 +1,3 @@
-/*
- * Thread.h
- *
- *  Created on: Mar 26, 2020
- *      Author: OS1
- */
-
 #ifndef THREAD_H_
 #define THREAD_H_
 #include <iostream.h>

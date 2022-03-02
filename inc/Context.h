@@ -1,10 +1,3 @@
-/*
- * Context.h
- *
- *  Created on: Apr 9, 2020
- *      Author: OS1
- */
-
 #ifndef CONTEXT_H_
 #define CONTEXT_H_
 #include "PCB.h"

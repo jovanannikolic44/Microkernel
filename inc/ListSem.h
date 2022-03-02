@@ -1,10 +1,3 @@
-/*
- * ListSem.h
- *
- *  Created on: Apr 20, 2020
- *      Author: OS1
- */
-
 #ifndef LISTSEM_H_
 #define LISTSEM_H_
 #include "KernSem.h"
